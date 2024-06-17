@@ -1,11 +1,14 @@
 import React from "react";
 
-const fragment1 = () => {
+
+const Fragment1 = (Props:any) => {
+
   return (
     <>
-      <h1>Framente1</h1>
+      <h1>{Props.princial}</h1>
+      <h2>{Props.secundario}</h2>
     </>
   );
 };
 
-export default fragment1;
+export default Fragment1;
