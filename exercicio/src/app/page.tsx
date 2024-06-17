@@ -1,6 +1,7 @@
 import PrimeiroComponent from "@/components/PrimeiroComponent";
 import Image from "next/image";
 import tsx4component from "@/components/tsx4component";
+import List1 from "@/components/list1";
 
 export default function Home() {
 
@@ -11,6 +12,7 @@ export default function Home() {
 
         <PrimeiroComponent/>
       <h2>{subtitle}</h2>
+        <List1/>
     </main>
   );
 }
