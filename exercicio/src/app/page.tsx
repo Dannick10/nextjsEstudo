@@ -5,6 +5,7 @@ import List1 from "@/components/list1";
 import Fragment1 from "@/components/fragment1";
 import PropsLeitura from "@/components/PropsLeitura";
 import Estilo from "@/components/Estilo";
+import Render from "@/components/Render";
 
 export default function Home() {
   const subtitle: string = "subtitulo";
@@ -19,6 +20,7 @@ export default function Home() {
       <Estilo color={15} />
       <Estilo color={-5} />
       <Estilo color={5} />
+      <Render />
     </main>
   );
 }
