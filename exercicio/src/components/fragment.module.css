@@ -1,0 +1,13 @@
+.h1{
+    color: green;
+    animation: titulo 1s alternate-reverse infinite;
+}
+
+@keyframes titulo {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+}
