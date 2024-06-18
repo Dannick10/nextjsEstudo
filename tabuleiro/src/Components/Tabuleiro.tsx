@@ -21,7 +21,7 @@ const Tabuleiro = () => {
     return Table;
   };
 
-  return <div className="flex flex-wrap w-[50%]">{generateTable(80)}</div>;
+  return <div className="flex flex-wrap w-[50%]">{generateTable(300)}</div>;
 };
 
 export default Tabuleiro;
