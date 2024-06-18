@@ -3,7 +3,7 @@ import Image from "next/image";
 import tsx4component from "@/components/tsx4component";
 import List1 from "@/components/list1";
 import Fragment1 from "@/components/fragment1";
-
+import PropsLeitura from "@/components/PropsLeitura";
 
 export default function Home() {
 
@@ -16,6 +16,7 @@ export default function Home() {
         <Fragment1 princial="funcinou" secundario="sim" descricao="a" />
       <h2>{subtitle}</h2>
         <List1/>
+        <PropsLeitura/>
     </main>
   );
 }
