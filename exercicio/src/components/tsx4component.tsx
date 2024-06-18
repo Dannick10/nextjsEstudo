@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const tsx4component = () => {
-  return (
-    <div>
+  return <div></div>;
+};
 
-    </div>
-  )
-}
-
-export default tsx4component
+export default tsx4component;
