@@ -6,8 +6,11 @@ import Fragment1 from "@/components/fragment1";
 import PropsLeitura from "@/components/PropsLeitura";
 import Estilo from "@/components/Estilo";
 import Render from "@/components/Render";
-import RenderProduct from "@/components/renderProduct";
+import RenderProduct from "@/components/RenderProduct";
 import Renderizacao from "@/components/Renderizacao";
+import Renderternario from "@/components/Renderternario";
+import GroupList from "@/components/GroupList";
+import Item from "@/components/Item";
 
 export default function Home() {
   const subtitle: string = "subtitulo";
@@ -24,6 +27,16 @@ export default function Home() {
       <Estilo color={5} />
       <Render />
       <RenderProduct />
+      <Renderizacao numero={3}/>
+      <Renderizacao numero={4}/>
+      <Renderternario numero={5}/>
+      <Renderternario numero={4}/>
+     <GroupList>
+        <Item  conteudo="item 1"/>
+        <Item  conteudo="item 2"/>
+        <Item  conteudo="item 3"/>
+    
+     </GroupList>
     </main>
   );
 }
