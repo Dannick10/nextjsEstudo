@@ -1,12 +1,14 @@
-import React, {useState} from 'react'
+import React, { useState} from 'react'
 
-type Props = {}
+type Props = {
+    
+}
 
 const Button = (props: Props) => {
 
     const [click,Setclick] = useState(false)
 
-    const action = (e) => {
+    const action = (e: React.MouseEvent<HTMLButtonElement>) => {
        Setclick(click ? false : true)
        console.log(e)
     }
