@@ -5,10 +5,11 @@ type Props = {}
 
 const Pai1 = (props: Props) => {
 
-    const falarcomigo = (...param) => {
+    const falarcomigo = (...param: string[] | number[]): void => {
         console.log(param)
     }
 
+    
 
   return (
     <div>
