@@ -11,12 +11,13 @@ import Renderizacao from "@/components/Renderizacao";
 import Renderternario from "@/components/Renderternario";
 import GroupList from "@/components/GroupList";
 import Item from "@/components/Item";
+import Contador from "@/components/Contador";
 
 export default function Home() {
   const subtitle: string = "subtitulo";
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex bg-zinc-700 min-h-screen flex-col items-center justify-between p-24">
       <PrimeiroComponent />
       <Fragment1 princial="funcinou" secundario="sim" descricao="a" />
       <h2>{subtitle}</h2>
@@ -31,7 +32,7 @@ export default function Home() {
       <Renderizacao numero={4}/>
       <Renderternario numero={5}/>
       <Renderternario numero={4}/>
-   
+    <Contador />
     </main>
   );
 }
