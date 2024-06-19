@@ -31,12 +31,7 @@ export default function Home() {
       <Renderizacao numero={4}/>
       <Renderternario numero={5}/>
       <Renderternario numero={4}/>
-     <GroupList>
-        <Item  conteudo="item 1"/>
-        <Item  conteudo="item 2"/>
-        <Item  conteudo="item 3"/>
-    
-     </GroupList>
+   
     </main>
   );
 }
