@@ -1,4 +1,5 @@
-export const mega = (qtde:number = 6, numeros:number[] = []):number[] => {
+export const mega = (quantidade:number = 6, numeros:number[] = []):number[] => {
+    let  qtde = +quantidade
     if(qtde < 6 && qtde > 60) {
         throw 'quantidade invalida'
     }
