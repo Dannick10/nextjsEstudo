@@ -7,7 +7,6 @@ type Props = {};
 const desafio = (props: Props) => {
 
   const [number, setNumber] = useState<number>(6); 
-  const [reload, SetReload] = useState<boolean>(false); 
 
   return (
     <div
@@ -20,18 +19,14 @@ const desafio = (props: Props) => {
       }}
     >
 
-        {reload && <>
+    
       <LogicNumber num={number} />
-        <button onClick={() => SetReload(false)}>Repetir</button>
-        </>
-        }
 
       <div>
         <label htmlFor="">
           Digite o numero sorteado
-          <input type="number" value={number} onChange={(e) => setNumber(parseInt(e.target.value))} minLength={6}/>
+          <input type="number" value={number} onChange={(e) => setNumber(number < 6 ? 6 :  parseInt(e.target.value))} minLength={6}/>
         </label>
-        <button onClick={() => SetReload(true)}>Sortear</button>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ const LogicNumber = ({ num }: Props) => {
     };
 
     setList(generateList());
-  }, []);
+  }, [num]);
 
   return (
     <>
