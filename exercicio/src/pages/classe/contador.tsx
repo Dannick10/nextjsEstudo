@@ -8,7 +8,7 @@ export default class Contador extends Component {
     return (
       <div>
         <h1>Teste classe</h1>
-          <ContadorComponent valorinicial={100}/>
+          <ContadorComponent valorinicial={100} passo={1}/>
       </div>
     );
   }
