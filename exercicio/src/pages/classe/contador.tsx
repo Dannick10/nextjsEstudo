@@ -4,12 +4,11 @@ import { Component } from "react";
 
 export default class Contador extends Component {
 
-  render(): JSX.Element {
+  render() {
     return (
       <div>
         <h1>Teste classe</h1>
-
-        <ContadorComponent/>
+          <ContadorComponent valorinicial={100}/>
       </div>
     );
   }
