@@ -1,19 +1,18 @@
 import { Component } from "react";
 import Numero from "./Numero";
 
-export default class ContadorComponent extends Component {
+interface stateComponent {
+  valorinicial?: number
+  passo?: number
+}
+
+export default class ContadorComponent extends Component<stateComponent> {
+
 
   state = {
     numero: this.props.valorinicial ?? 0,
     passo: this.props.passo ?? 1
   }
-
-
-// construtor(props) {
-  //  super(props)
-//
-    //this.inc = this.inc.bind(this)
-  //}
 
   inc = () => {
     this.setState({
