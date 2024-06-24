@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const buscar = () => {
@@ -12,6 +13,9 @@ const buscar = () => {
   return (
     <div>
         <h1>rotas / id / buscar</h1>
+        <Link href='/'>
+          Voltar
+        </Link>
     </div>
   )
 }
