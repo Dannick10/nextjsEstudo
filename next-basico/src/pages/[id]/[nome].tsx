@@ -11,8 +11,8 @@ const nome = () => {
   console.log(codigo)
 
   return (
-    <div>
-        <h1>rotas / {codigo} / {nome}</h1>
+    <div className='bg-red-400'>
+        <h1 className='bg-black text-white p-29'>rotas / {codigo} / {nome}</h1>
         <Link href='/'>
           Voltar
         </Link>

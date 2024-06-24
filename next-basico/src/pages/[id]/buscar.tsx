@@ -12,7 +12,7 @@ const buscar = () => {
 
   return (
     <div>
-        <h1>rotas / id / buscar</h1>
+        <h1 className='bg-black'>rotas / id / buscar</h1>
         <Link href='/'>
           Voltar
         </Link>
