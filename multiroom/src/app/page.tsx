@@ -4,7 +4,7 @@ import Porta from "./components/Porta";
 
 export default function Home() {
   return (
-    <main>
+    <main className="flex items-center justify-center">
       <Porta />
       
     </main>
