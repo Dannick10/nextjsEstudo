@@ -5,7 +5,8 @@ import Porta from "./components/Porta";
 export default function Home() {
   return (
     <main className="flex items-center justify-center">
-      <Porta />
+      <Porta selecionada={true}/>
+      <Porta selecionada={false}/>
       
     </main>
   );
