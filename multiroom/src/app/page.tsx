@@ -9,11 +9,16 @@ import PortaModel from "./model/porta";
 
 export default function Home() {
   const [p1, Setp1] = useState(new PortaModel(1))
+  const [text,Settext] = useState('...')
+  console.log(p1)
+  p1.abrir()
 
   return (
 
-    <main className="flex items-center justify-center">
-      <Porta porta={p1}/>
+    <main className="flex items-center justify-center flex-col">
+      <input type="text" value={text} onChange={(e) => Settext(e.target.value)}/>
+
+      <Porta value={p1} onChange={novaPorta => Setp1(novaPorta)}/>
       
     </main>
   );

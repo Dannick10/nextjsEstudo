@@ -29,8 +29,7 @@ export default class PortaModel {
   };
 
   alternarSelecao() {
-    const selecionada = !this.selecionada;
-    return new PortaModel(this.numero, this.presente, this.selecionada, this.aberta);
+    return new PortaModel(this.numero, this.presente, !this.selecionada, this.aberta);
   }
 
   desslecionar() {

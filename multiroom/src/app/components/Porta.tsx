@@ -2,17 +2,22 @@ import React, { useState } from "react";
 
 import PortaModel from "../model/porta";
 
-type Props = {
-    porta: PortaModel
+type portaProps = {
+    value: PortaModel
+    onChange: (novaPorta: PortaModel) => void
 };
 
-const Porta = (props: Props) => {
+const Porta = (props: portaProps) => {
 
-  const { porta } = props
+  const porta = props.value
   const selecionada = porta.selecionada
 
+  const alternarSelecao = e => props.onChange(porta.alternarSelecao())
+
+
+
   return (
-    <div className="flex justify-center w-[200px] h-[300px] relative">
+    <div className="flex justify-center w-[200px] h-[300px] relative" onClick={alternarSelecao}>
       <div className={`flex flex-col bg-orange-600 items-center p-10 text-white flex-grow-1 border-4 border-red-700 border-b-0 ${selecionada ? 'border-yellow-300': ''}`}>
         <div className="flex flex-col bg-orange-600 items-center p-10 text-white flex-grow-1" ></div>
         <div className={`text-5xl ${selecionada ? 'text-yellow-300': ''}`}>{porta.numero}</div>
