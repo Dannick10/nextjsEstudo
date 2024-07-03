@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import PortaModel from "../model/porta";
+import Presente from "./Presente";
 
 type portaProps = {
   value: PortaModel;
@@ -29,6 +30,8 @@ const Porta = (props: portaProps) => {
       <div
         className={`flex flex-col w-44 items-center p-10 text-white flex-grow-1 border-4 bg-orange-950 border-red-700 border-b-0 `}
         >
+         
+          {porta.aberta && porta.presente && <div className="absolute h-[80%] flex flex-col-reverse"><Presente /></div>}
           {porta.aberta  ? false : (
             <>
             <div className={`flex flex-col bg-orange-600 border-4 border-red-700 w-44 h-full top-0 absolute items-center p-10 text-white flex-grow-1 ${selecionada ? 'border-yellow-300':''}`}></div>

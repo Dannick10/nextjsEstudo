@@ -12,7 +12,7 @@ export default function Home() {
   const [p1, Setp1] = useState(new PortaModel(1));
   const [text, Settext] = useState("...");
 
-  const [portas, SetPortas] = useState(criarPortas(5, 2));
+  const [portas, SetPortas] = useState(criarPortas(5, 5));
   console.log(portas)
   function renderizarPortas() {
     return portas.map(porta => {
