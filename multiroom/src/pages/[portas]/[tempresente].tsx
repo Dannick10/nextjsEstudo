@@ -17,8 +17,8 @@ export default function game() {
   const router = useRouter()
   
   useEffect(() => {
-    const portas = +router.query.portas 
-    const presente = +router.query.tempresente == 0 ? Math.floor(Math.random()*portas) : +router.query.tempresente
+    const portas = +!router.query.portas 
+    const presente = +!router.query.tempresente == 0 ? Math.floor(Math.random()*portas) : +!router.query.tempresente
 
 
       SetPortas(criarPortas(portas,presente))
