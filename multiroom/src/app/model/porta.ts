@@ -34,7 +34,7 @@ export default class PortaModel {
 
   desslecionar() {
     const selecionada = false;
-    return new PortaModel(this.numero, this.presente, this.selecionada, this.aberta);
+    return new PortaModel(this.numero, this.presente, selecionada, this.aberta);
   }
 
   abrir() {
