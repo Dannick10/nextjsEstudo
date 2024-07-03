@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import PortaModel from "../model/porta";
+import PortaModel from "../app/model/porta";
 import Presente from "./Presente";
 
 type portaProps = {

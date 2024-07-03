@@ -7,6 +7,7 @@ const Presente = () => {
         <div className='w-[90px] h-[60px] bg-lime-700'></div>
         <div className='bg-red-600 w-[15px] h-[90px] absolute bottom-0'></div>
         <div className='bg-red-600 w-[90px] h-[15px] absolute top-[40px]'></div>
+      
     </div>
   )
 }
