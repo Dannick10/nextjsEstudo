@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
-type Props = {}
+type Props = {};
 
 const estatico = (props: Props) => {
-//const [num, Setnum] = useState<number>()
+  //const [num, Setnum] = useState<number>()
 
-   /* useEffect(() => {
+  /* useEffect(() => {
         Setnum(Math.random())
     },[])*/
 
   return (
     <div>
-        <h2 className='text-4xl'>Estático #02</h2>
-        {/*num*/}
+      <h2 className="text-4xl">Estático #02</h2>
+      {/*num*/}
     </div>
-  )
-}
+  );
+};
 
-export default estatico
+export default estatico;
