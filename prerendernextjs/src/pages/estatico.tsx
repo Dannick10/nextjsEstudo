@@ -11,7 +11,7 @@ const estatico = (props: Props) => {
 
   return (
     <div>
-        <h2>Estático #02</h2>
+        <h2 className='text-4xl'>Estático #02</h2>
         {/*num*/}
     </div>
   )
