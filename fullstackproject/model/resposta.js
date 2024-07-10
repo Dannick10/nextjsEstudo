@@ -1,3 +1,5 @@
+import Id from "@/pages/api/questoes/[id]";
+
 export default class RespostaModel {
     constructor(valor, certa, revelada) {
       this._valor = valor;
@@ -24,5 +26,6 @@ export default class RespostaModel {
     get revelada() {
       return this._revelada;
     }
+
   }
   
