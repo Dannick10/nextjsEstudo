@@ -1,32 +1,32 @@
-export default class questalModel {
-  constructor(id, enunciado, respostas, acertou = false) {
-    this.id = id;
-    this.enunciado = enunciado;
-    this.respostas = respostas;
-    this.acertou = acertou;
-  }
-
-  get id() {
-    return this.id;
-  }
-
-  get enunciado() {
-    return this.enunciado;
-  }
-
-  get respostas() {
-    return this.respostas;
-  }
-
-  get acertou() {
-    return this.acertou;
-  }
-
-  get respondida() {
-    for(let respostas of this.respostas) {
-        if(respostas.revelada) return true
+export default class QuestsModel {
+    constructor(id, enunciado, respostas, acertou = false) {
+      this._id = id;
+      this._enunciado = enunciado;
+      this._respostas = respostas;
+      this._acertou = acertou;
     }
-
-    return false;
+  
+    get id() {
+      return this._id;
+    }
+  
+    get enunciado() {
+      return this._enunciado;
+    }
+  
+    get respostas() {
+      return this._respostas;
+    }
+  
+    get acertou() {
+      return this._acertou;
+    }
+  
+    get respondida() {
+      for (let resposta of this._respostas) {
+        if (resposta.revelada) return true;
+      }
+      return false;
+    }
   }
-}
+  
