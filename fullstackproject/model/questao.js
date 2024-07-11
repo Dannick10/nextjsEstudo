@@ -1,5 +1,6 @@
 import questionario from "@/pages/api/questionario";
 import { embaralhar } from "../functions/arrays";
+import RespostaModel from "./resposta";
 
 export default class QuestsModel {
     constructor(id, enunciado, respostas, acertou = false) {
@@ -23,6 +24,16 @@ export default class QuestsModel {
   
     get acertou() {
       return this._acertou;
+    }
+
+    respondercom(indice) {
+      const acertou = this.respostas[indice]?._acertou
+      const resposta = this.respostas.map((resposta, i) => {
+        const respostasSelecionada = indice === i 
+        const deveRevelar = respostasSelecionada || resposta.certa
+        return deveRevelar ? resposta.revelar() : resposta
+      })
+      return new QuestsModel(this.id, this.enunciado, resposta, acertou)
     }
 
     embaralharRespostas() {

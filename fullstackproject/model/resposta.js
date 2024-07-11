@@ -14,6 +14,10 @@ export default class RespostaModel {
     static errada(valor) {
       return new RespostaModel(valor, false, false);
     }
+
+    revelar() {
+      return new RespostaModel(this._valor,this._certa, true)
+    }
   
     get valor() {
       return this._valor;
