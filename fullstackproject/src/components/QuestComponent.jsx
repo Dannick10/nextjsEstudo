@@ -2,6 +2,13 @@ import React from "react";
 import EnunciadoComponent from "./EnunciadoComponent";
 import RespostaComponent from "./RespostaComponent";
 
+const letras = [
+  {valor: 'A', cor: '#F2C866'},
+  {valor: 'B', cor: '#F266BA'},
+  {valor: 'C', cor: '#85D4F2'},
+  {valor: 'D', cor: '#BCE596'},
+]
+
 const QuestComponent = ({ props }) => {
   const renderizarResposta = () => {
     return props._respostas.map((resposta, i) => {
@@ -9,9 +16,9 @@ const QuestComponent = ({ props }) => {
         <RespostaComponent
           key={i}
           resposta={resposta}
-          letra={"A"}
+          letra={letras[i].valor}
           indice={i}
-          corletra={"#F2C866"}
+          corletra={letras[i].cor}
         />
       );
     });
