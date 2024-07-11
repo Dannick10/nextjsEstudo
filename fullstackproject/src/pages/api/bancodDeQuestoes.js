@@ -3,13 +3,13 @@ import RespostaModel from "../../../model/resposta";
 
 const questoes = [
   new questalModel(306, "javascript é uma linguagem de orientaçao a objeto?", [
-    RespostaModel.errada("Sim"),
-    RespostaModel.certa("Não"),
+    RespostaModel.certa("Sim"),
+    RespostaModel.errada("Não"),
   ]),
   new questalModel(202, `como se declara uma variavel de "nome" em js?`, [
     RespostaModel.errada("var = nome"),
-    RespostaModel.errada("var nome = "),
-    RespostaModel.certa("nome ="),
+    RespostaModel.certa("var nome = "),
+    RespostaModel.errada("nome ="),
   ]),
   new questalModel(104, "como printa algo na tela com js?", [
     RespostaModel.errada("echo"),

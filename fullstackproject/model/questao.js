@@ -1,3 +1,6 @@
+import questionario from "@/pages/api/questionario";
+import { embaralhar } from "../functions/arrays";
+
 export default class QuestsModel {
     constructor(id, enunciado, respostas, acertou = false) {
       this._id = id;
@@ -20,6 +23,11 @@ export default class QuestsModel {
   
     get acertou() {
       return this._acertou;
+    }
+
+    embaralharRespostas() {
+      let respostasEmbaralhadas = embaralhar(this.respostas)
+      return new QuestsModel(this.id, this.enunciado, respostasEmbaralhadas, this.acertou)
     }
   
     get respondida() {
