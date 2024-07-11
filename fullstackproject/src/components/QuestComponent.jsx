@@ -7,6 +7,7 @@ const QuestComponent = ({ props }) => {
     return props._respostas.map((resposta, i) => {
       return (
         <RespostaComponent
+          key={i}
           resposta={resposta}
           letra={"A"}
           indice={i}

@@ -11,7 +11,9 @@ export default function Home() {
 
   const questaoTest = new QuestsModel(1, 'Melhor cor', [
     RespostaModel.errada('Verde'),
-    RespostaModel.certa('azul')
+    RespostaModel.errada('roxo'),
+    RespostaModel.errada('vermelho'),
+    RespostaModel.certa('laranja')
   ])
 
 
