@@ -10,7 +10,7 @@ const RespostaComponent = ({
   console.log(resposta);
   return (
     <div
-      className="flex max-w-[80vw] bg-white text-black font-bold rounded-md m-2 relative self-stretch overflow-hidden"
+      className="flex max-w-[80vw] bg-white text-black font-bold rounded-md m-2 relative self-stretch overflow-hidden shadow-md cursor-pointer"
       onClick={() => respostafornecida(indice)}
     >
       {!resposta.revelada ? (

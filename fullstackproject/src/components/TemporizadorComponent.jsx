@@ -1,11 +1,11 @@
 import React from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-const TemporizadorComponent = ({ duracao, tempoEsgotado }) => {
+const TemporizadorComponent = ({tempoResposta, tempoEsgotado }) => {
   return (
     <div className="text-4xl font-semibold text-yellow-500">
       <CountdownCircleTimer
-        duration={duracao}
+        duration={tempoResposta}
         size={120}
         isPlaying
         onComplete={tempoEsgotado}
