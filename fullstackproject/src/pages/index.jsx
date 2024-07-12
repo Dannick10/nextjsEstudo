@@ -20,15 +20,19 @@ export default function Home() {
 
 
   const respostafornecida  = (indice) => {
-    console.log(indice)
     SetQuestao(questao.respondercom(indice))
+  }
+
+  const tempoesgotado = ()  => {
+    SetQuestao(questao.respondercom(-1))
   }
 
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-center p-24 ${inter.className}`}
     >
-    <QuestComponent props={questao} respostafornecida={respostafornecida}/>
+    <QuestComponent props={questao} respostafornecida={respostafornecida}
+    tempoesgotado={tempoesgotado}/>
     </main>
   );
 }

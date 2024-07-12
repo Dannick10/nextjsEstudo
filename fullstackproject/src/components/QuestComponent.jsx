@@ -1,6 +1,7 @@
 import React from "react";
 import EnunciadoComponent from "./EnunciadoComponent";
 import RespostaComponent from "./RespostaComponent";
+import TemporizadorComponent from "./TemporizadorComponent";
 
 const letras = [
   {valor: 'A', cor: '#F2C866'},
@@ -9,7 +10,7 @@ const letras = [
   {valor: 'D', cor: '#BCE596'},
 ]
 
-const QuestComponent = ({ props, respostafornecida }) => {
+const QuestComponent = ({ props, respostafornecida,tempoesgotado }) => {
   const renderizarResposta = () => {
     return props._respostas.map((resposta, i) => {
       return (
@@ -25,9 +26,11 @@ const QuestComponent = ({ props, respostafornecida }) => {
     });
   };
 
+
   return (
     <div className="flex flex-col items-center justify-around h-full gap-2">
       <EnunciadoComponent text={props._enunciado} />
+      <TemporizadorComponent duracao={10} tempoEsgotado={tempoesgotado}/>
       {renderizarResposta()}
     </div>
   );
