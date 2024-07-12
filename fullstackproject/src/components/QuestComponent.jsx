@@ -9,7 +9,7 @@ const letras = [
   {valor: 'D', cor: '#BCE596'},
 ]
 
-const QuestComponent = ({ props }) => {
+const QuestComponent = ({ props, respostafornecida }) => {
   const renderizarResposta = () => {
     return props._respostas.map((resposta, i) => {
       return (
@@ -19,6 +19,7 @@ const QuestComponent = ({ props }) => {
           letra={letras[i].valor}
           indice={i}
           corletra={letras[i].cor}
+          respostafornecida={respostafornecida}
         />
       );
     });
