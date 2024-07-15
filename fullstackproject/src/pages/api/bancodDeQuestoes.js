@@ -8,6 +8,12 @@ const questoes = [
       RespostaModel.errada('Pulga'),
       RespostaModel.certa('Barbeiro'),
   ]),
+  new QuestsModel(202, 'Qual bicho?', [
+      RespostaModel.errada('Abelha'),
+      RespostaModel.errada('Barata'),
+      RespostaModel.errada('Pulga'),
+      RespostaModel.certa('Barbeiro'),
+  ]),
 ]
 
 

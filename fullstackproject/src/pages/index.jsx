@@ -16,14 +16,14 @@ const questaoMock = new QuestsModel(1, "Melhor cor", [
 ]);
 
 export default function Home() {
-  const BASE_URL = "http://localhost:3000/api/questionario";
+  const BASE_URL = "http://localhost:3000/api/";
 
   const [Ids, SetIds] = useState([]);
 
   useEffect(() => {
     const LoadingQuestionID = async () => {
       try {
-        const resp = await fetch(BASE_URL);
+        const resp = await fetch(`${BASE_URL}/questionario`);
         const data = await resp.json();
         SetIds(data);
       } catch (error) {
@@ -33,6 +33,24 @@ export default function Home() {
 
     LoadingQuestionID();
   }, [BASE_URL]);
+  
+  const LoadingQuestion = async () => {
+    try {
+      const resp = await fetch(`${BASE_URL}/questoes/${Ids[0]}`);
+      const data = await resp.json();
+      console.log(data)
+    } catch (error) {
+      console.error("Failed to load question IDs:", error);
+    }
+  };
+
+  useEffect(() => {
+    Ids.length > 0 && LoadingQuestion(Ids[0])
+  }, [Ids]);
+
+
+
+
 
   console.log(Ids)
 
@@ -54,7 +72,7 @@ export default function Home() {
     >
       <Questionario
         questao={questao}
-        ultima={true}
+        ultima={false}
         questaoRespondida={respostafornecida}
         irProproximopasso={irProproximopasso}
       />
