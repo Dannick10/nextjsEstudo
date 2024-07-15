@@ -1,6 +1,5 @@
-import questionario from "@/pages/api/questionario";
+
 import { embaralhar } from "../functions/arrays";
-import RespostaModel from "./resposta";
 
 export default class QuestsModel {
     constructor(id, enunciado, respostas, acertou = false) {

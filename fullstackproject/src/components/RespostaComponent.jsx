@@ -7,7 +7,6 @@ const RespostaComponent = ({
   corletra,
   respostafornecida,
 }) => {
-  console.log(resposta);
   return (
     <div
       className="flex max-w-[80vw] bg-white text-black font-bold rounded-md m-2 relative self-stretch overflow-hidden shadow-md cursor-pointer"
@@ -27,7 +26,7 @@ const RespostaComponent = ({
         <div className="flex gap-2 items-center w-full min-w-72 relative">
           {resposta.certa ? (
             <div className="flex gap-2 items-center justify-center flex-1 bg-green-500 text-white rounded-md p-6 animation">
-               <div>
+              <div>
                 <p>A resposta certa... </p>
               </div>
               <div>

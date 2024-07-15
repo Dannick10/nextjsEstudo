@@ -1,4 +1,4 @@
-import Id from "@/pages/api/questoes/[id]";
+
 
 export default class RespostaModel {
     constructor(valor, certa, revelada) {
