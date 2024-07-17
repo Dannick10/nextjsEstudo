@@ -38,25 +38,25 @@ export default function Home() {
     try {
       const resp = await fetch(`${BASE_URL}/questoes/${Ids[0]}`);
       const data = await resp.json();
-      console.log(data.selecionada)
-      console.log(QuestsModel.criarUsandoObjeto(data.selecionada))
+      SetQuestao(QuestsModel.criarUsandoObjeto(data.selecionada))
     } catch (error) {
       console.error("Failed to load question IDs:", error);
     }
   };
-
+  
   useEffect(() => {
     Ids.length > 0 && LoadingQuestion(Ids[0])
   }, [Ids]);
-
-
-
-
-
+  
+  
+  
+  
+  
   console.log(Ids)
-
+  
   const [questao, SetQuestao] = useState(questaoMock);
-
+  console.log(questao)
+  
   const respostafornecida = (indice) => {
     SetQuestao(questao.respondercom(indice));
   };

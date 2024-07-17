@@ -18,7 +18,7 @@ export default class RespostaModel {
   }
 
   static criarUsandoObjeto(obj) {
-    return new RespostaModel(obj.valor, obj.certa, obj.revelada);
+    return new RespostaModel(obj._valor, obj._certa, obj._revelada);
   }
 
   get valor() {
@@ -31,5 +31,13 @@ export default class RespostaModel {
 
   get revelada() {
     return this._revelada;
+  }
+
+  converterParaObjeto() {
+    return {
+      valor: this._valor,
+      certa: this._certa,
+      revelada: this._revelada,
+    };
   }
 }

@@ -42,7 +42,7 @@ export default class QuestsModel {
 
   static criarUsandoObjeto(obj) {
     const respostas = obj._respostas.map(res => RespostaModel.criarUsandoObjeto(res));
-    return new QuestsModel(obj.id, obj.enunciado, respostas, obj.acertou);
+    return new QuestsModel(obj._id, obj._enunciado, respostas, obj._acertou);
   }
 
   get respondida() {
@@ -50,5 +50,15 @@ export default class QuestsModel {
       if (resposta.revelada) return true;
     }
     return false;
+  }
+
+  converterParaObjeto() {
+    return {
+      id: this.id,
+      enunciado: this.enunciado,
+      respondida: this.respondida,
+      acertou: this.acertou,
+      respostas: this.respostas.map((resp) => resp.converterParaObjeto()),
+    };
   }
 }
