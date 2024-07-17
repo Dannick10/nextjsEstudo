@@ -38,7 +38,8 @@ export default function Home() {
     try {
       const resp = await fetch(`${BASE_URL}/questoes/${Ids[0]}`);
       const data = await resp.json();
-      console.log(data)
+      console.log(data.selecionada)
+      console.log(QuestsModel.criarUsandoObjeto(data.selecionada))
     } catch (error) {
       console.error("Failed to load question IDs:", error);
     }
