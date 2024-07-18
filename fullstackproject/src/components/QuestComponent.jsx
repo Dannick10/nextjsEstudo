@@ -30,7 +30,7 @@ const QuestComponent = ({ props, respostafornecida, tempoesgotado }) => {
   return (
     <div className="flex flex-col items-center justify-around h-full gap-2">
       <EnunciadoComponent text={props._enunciado} />
-      <TemporizadorComponent tempoResposta={10} tempoEsgotado={tempoesgotado} />
+      <TemporizadorComponent key={props._id} tempoResposta={10} tempoEsgotado={tempoesgotado} />
       {renderizarResposta()}
     </div>
   );

@@ -14,7 +14,7 @@ export default function Home() {
   const [questao, SetQuestao] = useState();
   const [RespostasCertas, SetRespostasCertas] = useState(0);
 
-  const router = useRouter()
+  const router = useRouter();
 
   const LoadingQuestionID = async () => {
     try {
@@ -40,6 +40,8 @@ export default function Home() {
     }
   };
 
+  console.log(questao)
+
   useEffect(() => {
     if (Ids.length > 0) {
       LoadingQuestion(Ids[0]);
@@ -52,8 +54,9 @@ export default function Home() {
 
   const questaoRespondida = (respondidas) => {
     SetQuestao(questao.respondercom(respondidas));
-    const acertou = respondidas.acertou;
-    SetRespostasCertas((prev) => prev + (acertou ? 1 : 0));
+    const acertou = questao._respostas[respondidas]._certa;
+    console.log(acertou)
+    SetRespostasCertas(RespostasCertas + (acertou ? 1 : 0));
   };
 
   const tempoesgotado = () => {
@@ -61,10 +64,8 @@ export default function Home() {
   };
 
   const idProximaPergunta = () => {
-    if (questao) {
-      const proximoIndice = Ids.indexOf(questao.id) + 1;
-      return Ids[proximoIndice];
-    }
+    const proximoIndice = Ids.indexOf(questao.id) + 1;
+    return Ids[proximoIndice];
   };
 
   const irProproximopasso = () => {
@@ -78,25 +79,29 @@ export default function Home() {
 
   const finalizar = () => {
     router.push({
-      pathname: '/resultado',
+      pathname: "/resultado",
       query: {
         total: Ids.length,
-        certas: RespostasCertas
-      }
-    })
+        certas: RespostasCertas,
+      },
+    });
   };
 
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-center p-24 ${inter.className} bg-gray-100`}
     >
-      <Questionario
-        questao={questao}
-        ultima={idProximaPergunta() === undefined}
-        questaoRespondida={questaoRespondida}
-        irProproximopasso={irProproximopasso}
-        tempoesgotado={tempoesgotado}
-      />
+      {questao ? (
+        <Questionario
+          questao={questao}
+          ultima={idProximaPergunta() === undefined}
+          questaoRespondida={questaoRespondida}
+          irProproximopasso={irProproximopasso}
+          tempoesgotado={tempoesgotado}
+        />
+      ) : (
+        <p>Loading</p>
+      )}
     </main>
   );
 }
