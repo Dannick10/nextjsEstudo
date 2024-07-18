@@ -1,73 +1,89 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import QuestsModel from "../../model/questao";
-import QuestComponent from "@/components/QuestComponent";
 import RespostaModel from "../../model/resposta";
 import { useEffect, useState } from "react";
 import Questionario from "@/components/Questionario";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
-
-const questaoMock = new QuestsModel(1, "Melhor cor", [
-  RespostaModel.errada("Verde"),
-  RespostaModel.errada("roxo"),
-  RespostaModel.errada("vermelho"),
-  RespostaModel.certa("laranja"),
-]);
 
 export default function Home() {
   const BASE_URL = "http://localhost:3000/api/";
 
   const [Ids, SetIds] = useState([]);
+  const [questao, SetQuestao] = useState();
+  const [RespostasCertas, SetRespostasCertas] = useState(0);
 
-  useEffect(() => {
-    const LoadingQuestionID = async () => {
-      try {
-        const resp = await fetch(`${BASE_URL}/questionario`);
-        const data = await resp.json();
-        SetIds(data);
-      } catch (error) {
-        console.error("Failed to load question IDs:", error);
-      }
-    };
+  const router = useRouter()
 
-    LoadingQuestionID();
-  }, [BASE_URL]);
-
-  const LoadingQuestion = async () => {
+  const LoadingQuestionID = async () => {
     try {
-      const resp = await fetch(`${BASE_URL}/questoes/${Ids[0]}`);
+      const resp = await fetch(`${BASE_URL}/questionario`);
       const data = await resp.json();
-      SetQuestao(QuestsModel.criarUsandoObjeto(data.selecionada));
+      SetIds(data);
     } catch (error) {
       console.error("Failed to load question IDs:", error);
     }
   };
 
   useEffect(() => {
-    Ids.length > 0 && LoadingQuestion(Ids[0]);
-  }, [Ids]);
+    LoadingQuestionID();
+  }, []);
 
-  const [questao, SetQuestao] = useState(questaoMock);
-  const [RespostasCertas,SetRespostasCertas] = useState()
-  console.log(questao);
+  const LoadingQuestion = async (id) => {
+    try {
+      const resp = await fetch(`${BASE_URL}/questoes/${id}`);
+      const data = await resp.json();
+      SetQuestao(QuestsModel.criarUsandoObjeto(data.selecionada));
+    } catch (error) {
+      console.error("Failed to load question:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (Ids.length > 0) {
+      LoadingQuestion(Ids[0]);
+    }
+  }, [Ids]);
 
   const respostafornecida = (indice) => {
     SetQuestao(questao.respondercom(indice));
   };
 
   const questaoRespondida = (respondidas) => {
-    SetQuestao(respondidas)
-    const acertou =respondidas.acertou
-    SetRespostasCertas(SetRespostasCertas + (acertou ? 1 : 0))
-  }
+    SetQuestao(questao.respondercom(respondidas));
+    const acertou = respondidas.acertou;
+    SetRespostasCertas((prev) => prev + (acertou ? 1 : 0));
+  };
 
   const tempoesgotado = () => {
     SetQuestao(questao.respondercom(-1));
   };
 
-  const irProproximopasso = () => {
+  const idProximaPergunta = () => {
+    if (questao) {
+      const proximoIndice = Ids.indexOf(questao.id) + 1;
+      return Ids[proximoIndice];
+    }
+  };
 
+  const irProproximopasso = () => {
+    const proximoID = idProximaPergunta();
+    proximoID ? irpraProximaQuestao(proximoID) : finalizar();
+  };
+
+  const irpraProximaQuestao = (proximoID) => {
+    LoadingQuestion(proximoID);
+  };
+
+  const finalizar = () => {
+    router.push({
+      pathname: '/resultado',
+      query: {
+        total: Ids.length,
+        certas: RespostasCertas
+      }
+    })
   };
 
   return (
@@ -76,8 +92,8 @@ export default function Home() {
     >
       <Questionario
         questao={questao}
-        ultima={false}
-        questaoRespondida={respostafornecida}
+        ultima={idProximaPergunta() === undefined}
+        questaoRespondida={questaoRespondida}
         irProproximopasso={irProproximopasso}
         tempoesgotado={tempoesgotado}
       />

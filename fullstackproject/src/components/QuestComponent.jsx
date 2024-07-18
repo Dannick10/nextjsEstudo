@@ -32,7 +32,6 @@ const QuestComponent = ({ props, respostafornecida, tempoesgotado }) => {
       <EnunciadoComponent text={props._enunciado} />
       <TemporizadorComponent tempoResposta={10} tempoEsgotado={tempoesgotado} />
       {renderizarResposta()}
-      <Button texto={'Resultado'}/>
     </div>
   );
 };
