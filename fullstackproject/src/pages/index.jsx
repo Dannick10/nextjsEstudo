@@ -48,24 +48,27 @@ export default function Home() {
     Ids.length > 0 && LoadingQuestion(Ids[0]);
   }, [Ids]);
 
-  console.log(Ids);
-
   const [questao, SetQuestao] = useState(questaoMock);
+  const [RespostasCertas,SetRespostasCertas] = useState()
   console.log(questao);
 
   const respostafornecida = (indice) => {
     SetQuestao(questao.respondercom(indice));
   };
 
-  const questaoRespondida = (indice) => {
-    SetQuestao(indice)
+  const questaoRespondida = (respondidas) => {
+    SetQuestao(respondidas)
+    const acertou =respondidas.acertou
+    SetRespostasCertas(SetRespostasCertas + (acertou ? 1 : 0))
   }
 
   const tempoesgotado = () => {
     SetQuestao(questao.respondercom(-1));
   };
 
-  const irProproximopasso = () => {};
+  const irProproximopasso = () => {
+
+  };
 
   return (
     <main
