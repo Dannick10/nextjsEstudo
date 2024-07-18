@@ -33,33 +33,33 @@ export default function Home() {
 
     LoadingQuestionID();
   }, [BASE_URL]);
-  
+
   const LoadingQuestion = async () => {
     try {
       const resp = await fetch(`${BASE_URL}/questoes/${Ids[0]}`);
       const data = await resp.json();
-      SetQuestao(QuestsModel.criarUsandoObjeto(data.selecionada))
+      SetQuestao(QuestsModel.criarUsandoObjeto(data.selecionada));
     } catch (error) {
       console.error("Failed to load question IDs:", error);
     }
   };
-  
+
   useEffect(() => {
-    Ids.length > 0 && LoadingQuestion(Ids[0])
+    Ids.length > 0 && LoadingQuestion(Ids[0]);
   }, [Ids]);
-  
-  
-  
-  
-  
-  console.log(Ids)
-  
+
+  console.log(Ids);
+
   const [questao, SetQuestao] = useState(questaoMock);
-  console.log(questao)
-  
+  console.log(questao);
+
   const respostafornecida = (indice) => {
     SetQuestao(questao.respondercom(indice));
   };
+
+  const questaoRespondida = (indice) => {
+    SetQuestao(indice)
+  }
 
   const tempoesgotado = () => {
     SetQuestao(questao.respondercom(-1));
@@ -76,6 +76,7 @@ export default function Home() {
         ultima={false}
         questaoRespondida={respostafornecida}
         irProproximopasso={irProproximopasso}
+        tempoesgotado={tempoesgotado}
       />
     </main>
   );
