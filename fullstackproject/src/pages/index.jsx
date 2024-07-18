@@ -55,7 +55,6 @@ export default function Home() {
   const questaoRespondida = (respondidas) => {
     SetQuestao(questao.respondercom(respondidas));
     const acertou = questao._respostas[respondidas]._certa;
-    console.log(acertou)
     SetRespostasCertas(RespostasCertas + (acertou ? 1 : 0));
   };
 
