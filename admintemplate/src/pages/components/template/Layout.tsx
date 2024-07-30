@@ -13,7 +13,7 @@ const Layout = (props: LayoutProps) => {
   return (
     <div className='flex h-screen w-screen'>
         <MenuLateral />
-        <div className='flex w-full flex-col bg-gray-300 p-7'>
+        <div className='flex w-full flex-col bg-gray-300 p-7 dark:bg-slate-800'>
         <Cabecalho titulo={props.titulo} subtitulo={props.subtitulo}/>
         <Conteudo>
           {props.children}
