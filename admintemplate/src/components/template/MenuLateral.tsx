@@ -5,7 +5,7 @@ import { IconeAjustes, IconeCase, IconeSino } from '../icons'
 
 const MenuLateral = () => {
   return (
-    <div className=''>
+    <div className={``}>
       <ul>
           <MenuItems url='/' texto='Inicio' icone={IconeCase} />
           <MenuItems url='/ajustes' texto='Ajustes' icone={IconeAjustes} />
