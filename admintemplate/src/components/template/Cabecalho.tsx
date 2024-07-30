@@ -8,7 +8,7 @@ type CabecalhoProps = {
 
 const Cabecalho = (props: CabecalhoProps) => {
   return (
-    <div>
+    <div className=''>
        <Titulo titulo={props.titulo} subtitulo={props.subtitulo}/>
     </div>
   )

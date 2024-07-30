@@ -6,36 +6,31 @@ type MenuItemProps = {
   texto: string;
   icone: any;
   onClick?: (event: any) => void;
-  classname?: string
+  classname?: string;
 };
 
 const MenuItems = (props: MenuItemProps) => {
   const renderizarConteudo = () => {
     return (
-      <p className="flex flex-col justify-center items-center h-20 w-full">
+      <p className="flex flex-col justify-center items-center h-20 w-full dark:hover:bg-gray-800">
         {props.icone}
-        <span className={`text-xs font-light`}>
-          {props.texto}
-        </span>
+        <span className={`text-xs font-light`}>{props.texto}</span>
       </p>
     );
   };
 
   return (
-    <li className={`hover:bg-green-100 text-gray-600 ${props.classname}`}>
+    <>
       {props.url ? (
-        <Link href={props.url}>
-          {renderizarConteudo()}
-          </Link>
+        <li className={`hover:bg-green-100 text-gray-600 ${props.classname}`}>
+          <Link href={props.url}>{renderizarConteudo()}</Link>
+        </li>
       ) : (
-        <li
-          className={`cursor-pointer`}
-          onClick={props.onClick}
-        >
+        <li className={`cursor-pointer dark:text-red-400`} onClick={props.onClick}>
           {renderizarConteudo()}
         </li>
       )}
-    </li>
+    </>
   );
 };
 
