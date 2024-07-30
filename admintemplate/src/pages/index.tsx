@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <Layout titulo="pagina Inicial" subtitulo="construido pagina admin" >
-      
+        <h2>Conteudo</h2>
     </Layout>
   );
 }
