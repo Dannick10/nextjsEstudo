@@ -7,11 +7,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
-  const dados = useAppdata()
+  const {alternarTema} = useAppdata()
 
   return (
     <Layout titulo="pagina Inicial" subtitulo="construido pagina admin" >
-      <h3>{dados.nome}</h3>
+      <button onClick={alternarTema}>Click</button>
     </Layout>
   );
 }
