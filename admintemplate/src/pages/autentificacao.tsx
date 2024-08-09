@@ -1,6 +1,7 @@
 import AuthInput from "@/components/auth/AuthInput";
 import { IconeGoogle } from "@/components/icons";
 import React, { useState } from "react";
+import Image from "next/image";
 
 type Props = {};
 
@@ -18,8 +19,15 @@ const autentificacao = (props: Props) => {
   }
 
   return (
-    <div className="flex justify-center items-center flex-col h-screen">
-      <div className="w-1/2">
+    <div className="flex justify-center items-center h-screen transition-transform ">
+      <div className="hidden md:block md:w-1/2 ">
+        <img
+          src="https://www.giffywalls.com/blog/wp-content/uploads/2023/01/mountain-wallpaper-for-walls-2048x1016.jpg"
+          alt="image tela autentificação"
+          className="h-screen object-cover"
+        />
+      </div>
+      <div className="w-1/2 p-2">
         <h1 className={`text-xl font-bold mb-5 `}>
           {modo === "login"
             ? "Entre com a Sua Conta"
@@ -39,7 +47,7 @@ const autentificacao = (props: Props) => {
           valorMudou={SetSenha}
           obrigatorio
         />
-       
+
         <button
           onClick={submeter}
           className={`w-full bg-indigo-500 hover:bg-indigo-400 text-white rounded-lg px-4 py-3 mt-6`}
@@ -53,6 +61,23 @@ const autentificacao = (props: Props) => {
         >
           {IconeGoogle} Entrar com Google
         </button>
+        {modo === "login" ? (
+          <p className="mt-8">
+            Novo por aqui ?
+            <a
+              onClick={() => Setmodo("cadastro")}
+              className="text-blue-500 hover:text-blue-700 font-semibold cursor-pointer"
+            > crie uma conta ?</a>
+          </p>
+        ) : (
+          <p className="mt-8">
+            Já faz parte da nossa comunidade?
+            <a
+              onClick={() => Setmodo("login")}
+              className="text-blue-500 hover:text-blue-700 font-semibold cursor-pointer"
+            > Entre com as suas credenciais ?</a>
+          </p>
+        )}
       </div>
     </div>
   );
