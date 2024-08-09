@@ -1,5 +1,5 @@
 import AuthInput from "@/components/auth/AuthInput";
-import { IconeGoogle } from "@/components/icons";
+import { IconeAtencao, IconeGoogle } from "@/components/icons";
 import React, { useState } from "react";
 import Image from "next/image";
 
@@ -9,13 +9,21 @@ const autentificacao = (props: Props) => {
   const [modo, Setmodo] = useState<"login" | "cadastro">("login");
   const [email, SetEmail] = useState("");
   const [senha, SetSenha] = useState("");
+  const [error, SetError] = useState(null)
 
   function submeter() {
     if (modo === "login") {
       console.log("login");
+      exebiErro('Ocorreu um erro no login')
     } else {
-      console.log("cadastrar");
+        console.log("cadastrar");
+        exebiErro('Ocorreu um erro no Cadastro')
     }
+  }
+
+  function exebiErro(msg, tempoSegundos = 5) {
+    SetError(msg)
+     setTimeout(() => {SetError(null)}, tempoSegundos * 1000)
   }
 
   return (
@@ -33,6 +41,12 @@ const autentificacao = (props: Props) => {
             ? "Entre com a Sua Conta"
             : "Cadastre-se na plataforma"}
         </h1>
+        {error ? 
+        <div className="bg-red-400 py-3 px-5 text-white rounded-lg flex items-center">
+            {IconeAtencao}
+            <span className="ml-3">{error}</span>
+        </div>
+        : null}
         <AuthInput
           label="Email"
           valor={email}
@@ -78,7 +92,7 @@ const autentificacao = (props: Props) => {
             > Entre com as suas credenciais ?</a>
           </p>
         )}
-      </div>
+      </div>dd
     </div>
   );
 };
