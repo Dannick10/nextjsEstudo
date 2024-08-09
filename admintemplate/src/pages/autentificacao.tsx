@@ -21,7 +21,7 @@ const autentificacao = (props: Props) => {
     }
   }
 
-  function exebiErro(msg, tempoSegundos = 5) {
+  function exebiErro(msg?:any, tempoSegundos = 5) {
     SetError(msg)
      setTimeout(() => {SetError(null)}, tempoSegundos * 1000)
   }
