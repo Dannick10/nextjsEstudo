@@ -2,6 +2,7 @@ import AuthInput from "@/components/auth/AuthInput";
 import { IconeAtencao, IconeGoogle } from "@/components/icons";
 import React, { useState } from "react";
 import Image from "next/image";
+import useAuth from "@/data/hook/useAppAuth";
 
 type Props = {};
 
@@ -10,6 +11,9 @@ const autentificacao = (props: Props) => {
   const [email, SetEmail] = useState("");
   const [senha, SetSenha] = useState("");
   const [error, SetError] = useState(null)
+
+  const {usuario, loginGoogle} = useAuth()
+
 
   function submeter() {
     if (modo === "login") {
@@ -70,7 +74,7 @@ const autentificacao = (props: Props) => {
         </button>
         <hr className="my-6 border-gray-300 w-full" />
         <button
-          onClick={submeter}
+          onClick={loginGoogle}
           className={`w-full bg-red-500 hover:bg-red-400 text-white rounded-lg px-4 py-3  flex items-center justify-center gap-2`}
         >
           {IconeGoogle} Entrar com Google
