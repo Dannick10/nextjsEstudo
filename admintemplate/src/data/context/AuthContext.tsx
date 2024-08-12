@@ -2,6 +2,7 @@ import { promises } from "dns";
 import firebase from "../../firebase/config";
 import { createContext, useState } from "react";
 import Usuario from "@/model/Usuario";
+import Router from "next/router";
 
 interface AuthContextProps {
   usuario?: Usuario;
@@ -27,7 +28,12 @@ export function AuthProvider(props) {
     const [usuario, Setusuario] = useState<Usuario>(null)
 
     async function loginGoogle() {
-        console.log('login google...')
+        const resp = await firebase.auth().signInWithPopup(
+            new firebase.auth.GoogleAuthProvider()
+        )
+        const usuario = await usuarioNormalizado(resp.user)
+        Setusuario(usuario)
+        Router.push('/')
     }
 
   return (
