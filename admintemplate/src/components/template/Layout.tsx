@@ -3,6 +3,7 @@ import MenuLateral from './MenuLateral'
 import Cabecalho from './Cabecalho'
 import Conteudo from './conteudo'
 import useAppdata from '@/data/hook/useAppdata'
+import ForcaAutentificacao from '../auth/ForcaAutentificacao'
 
 type LayoutProps = {
     titulo: string
@@ -22,6 +23,7 @@ const Layout = (props: LayoutProps) => {
           {props.children}
         </Conteudo>
         </div>
+        <ForcaAutentificacao/>
     </div>
   )
 }

@@ -9,6 +9,7 @@ import { cookies } from "next/headers";
 interface AuthContextProps {
   usuario?: Usuario;
   loginGoogle: () => Promise<void>;
+  carregando?: boolean
   logout?: () => Promise<void>
 }
 
@@ -79,6 +80,8 @@ export function AuthProvider(props) {
     if(Cookies.get('admin-template-code')) {
       const cancelar = onIdTokenChanged(auth, configurarSession)
       return () => cancelar()
+    } else {
+      setCarregando(false)
     }
   },[])
 
@@ -87,6 +90,7 @@ export function AuthProvider(props) {
       value={{
         usuario,
         loginGoogle,
+        carregando,
         logout
       }}
     >
