@@ -19,10 +19,18 @@ export default function Home() {
     new Cliente('Pedro',54, '4'),
   ]
 
+  const clienteSelecdionado = (cliente: Cliente) => {
+console.log(cliente)
+}
+const clienteExcluido = (cliente: Cliente) => {
+  console.log(cliente.nome)
+  
+  }
+
   return (
     <Layout titulo="pagina Inicial" subtitulo="construido pagina admin" >
       <LayoutTable titulo="Cadastro simples">
-        <TableColumns clientes={clientes}></TableColumns>
+        <TableColumns clientes={clientes} clienteSelecionado={clienteSelecdionado} clienteExcluido={clienteExcluido}></TableColumns>
       </LayoutTable>
     </Layout>
   );
