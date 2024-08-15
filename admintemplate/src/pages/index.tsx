@@ -6,6 +6,7 @@ import LayoutTable from "@/components/template/table/LayoutTable";
 import TableColumns from "@/components/template/table/TableColumns";
 import Cliente from "@/model/cliente";
 import Botao from "@/components/template/table/Botao";
+import FormularioTable from "@/components/template/table/FormularioTable";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,7 +36,8 @@ const clienteExcluido = (cliente: Cliente) => {
         <Botao className="mb-4" cor="bg-green-500">Novo Cliente</Botao>
         </div>
         <TableColumns clientes={clientes} clienteSelecionado={clienteSelecdionado} clienteExcluido={clienteExcluido}></TableColumns>
-      </LayoutTable>
+      <FormularioTable cliente={clientes[2]} />
+  </LayoutTable> 
     </Layout>
   );
 }
