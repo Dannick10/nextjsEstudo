@@ -5,6 +5,8 @@ import Cliente from '@/model/cliente'
 
 type FormularioTableProps = {
     cliente: Cliente
+    clienteMudou?: (cliente: Cliente) => void
+    cancelado?: () => void
 }
 
 
@@ -23,8 +25,8 @@ const FormularioTable = (props: FormularioTableProps) => {
         <Entrada texto='nome' valor={nome} valormudou={setNome}/>
         <Entrada texto='idade' valor={idade} tipo='number' valormudou={setIdade}/>
         <div className='flex'>
-        <Botao className='m-2' cor='bg-green-500'>Salvar</Botao>
-        <Botao className='m-2' cor='bg-red-500'>Cancelar</Botao>
+        <Botao className='m-2' cor='bg-green-500' onclick={() => props.clienteMudou?.(new Cliente(nome,idade, id))}>{id ? 'alterar': 'salvar'}</Botao>
+        <Botao className='m-2' cor='bg-red-500' onclick={props.cancelado}>Cancelar</Botao>
         </div>
     </div>
   )
