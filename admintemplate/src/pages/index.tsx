@@ -5,6 +5,7 @@ import useAppdata from "@/data/hook/useAppdata";
 import LayoutTable from "@/components/template/table/LayoutTable";
 import TableColumns from "@/components/template/table/TableColumns";
 import Cliente from "@/model/cliente";
+import Botao from "@/components/template/table/Botao";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,9 @@ const clienteExcluido = (cliente: Cliente) => {
   return (
     <Layout titulo="pagina Inicial" subtitulo="construido pagina admin" >
       <LayoutTable titulo="Cadastro simples">
+        <div className="flex justify-end">
+        <Botao className="mb-4" cor="bg-green-500">Novo Cliente</Botao>
+        </div>
         <TableColumns clientes={clientes} clienteSelecionado={clienteSelecdionado} clienteExcluido={clienteExcluido}></TableColumns>
       </LayoutTable>
     </Layout>
