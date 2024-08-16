@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const { alternarTema } = useAppdata();
-
+  
   const clientes = [
     new Cliente("Daniel", 24, "1"),
     new Cliente("Bia", 45, "2"),
@@ -21,9 +21,20 @@ export default function Home() {
     new Cliente("Pedro", 54, "4"),
   ];
 
+  const [cliente, Setcliente] = useState<Cliente>(Cliente.vazio())
+  const [visivel, Setvisivel] = useState<"tabela" | "form">("tabela");
+  
+
   const clienteSelecdionado = (cliente: Cliente) => {
-    console.log(cliente);
+    Setcliente(cliente)
+    Setvisivel('form')
   };
+
+  const novoCliente = () => {
+    Setcliente(Cliente.vazio())
+    Setvisivel('form')
+  }
+
   const clienteExcluido = (cliente: Cliente) => {
     console.log(cliente.nome);
   };
@@ -32,7 +43,6 @@ export default function Home() {
     console.log(cliente.nome);
   };
 
-  const [visivel, Setvisivel] = useState<"tabela" | "form">("tabela");
 
   return (
     <Layout titulo="pagina Inicial" subtitulo="construido pagina admin">
@@ -43,7 +53,7 @@ export default function Home() {
               <Botao
                 className="mb-4"
                 cor="bg-green-500"
-                onclick={() => Setvisivel("form")}
+                onclick={() => novoCliente()}
               >
                 Novo Cliente
               </Botao>
@@ -56,7 +66,7 @@ export default function Home() {
           </>
         ) : (
           <FormularioTable
-            cliente={clientes[2]}
+            cliente={cliente}
             clienteMudou={salvarCliente}
             cancelado={() => Setvisivel("tabela")}
           />
