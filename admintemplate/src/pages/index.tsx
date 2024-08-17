@@ -4,45 +4,16 @@ import Layout from "../components/template/Layout";
 import useAppdata from "@/data/hook/useAppdata";
 import LayoutTable from "@/components/template/table/LayoutTable";
 import TableColumns from "@/components/template/table/TableColumns";
-import Cliente from "@/model/cliente";
 import Botao from "@/components/template/table/Botao";
 import FormularioTable from "@/components/template/table/FormularioTable";
-import { useState } from "react";
+import { useCliente } from "@/data/hook/useCliente";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const { alternarTema } = useAppdata();
-  
-  const clientes = [
-    new Cliente("Daniel", 24, "1"),
-    new Cliente("Bia", 45, "2"),
-    new Cliente("Carlos", 30, "3"),
-    new Cliente("Pedro", 54, "4"),
-  ];
 
-  const [cliente, Setcliente] = useState<Cliente>(Cliente.vazio())
-  const [visivel, Setvisivel] = useState<"tabela" | "form">("tabela");
-  
-
-  const clienteSelecdionado = (cliente: Cliente) => {
-    Setcliente(cliente)
-    Setvisivel('form')
-  };
-
-  const novoCliente = () => {
-    Setcliente(Cliente.vazio())
-    Setvisivel('form')
-  }
-
-  const clienteExcluido = (cliente: Cliente) => {
-    console.log(cliente.nome);
-  };
-
-  const salvarCliente = (cliente: Cliente) => {
-    console.log(cliente.nome);
-  };
-
+  const { clienteSelecdionado, salvarCliente, clienteExcluido, novoCliente, obterTodos, cliente, clientesdb, visivel} = useCliente()
 
   return (
     <Layout titulo="pagina Inicial" subtitulo="construido pagina admin">
@@ -59,7 +30,7 @@ export default function Home() {
               </Botao>
             </div>
             <TableColumns
-              clientes={clientes}
+              clientes={clientesdb}
               clienteSelecionado={clienteSelecdionado}
               clienteExcluido={clienteExcluido}
             ></TableColumns>
